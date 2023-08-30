@@ -38,6 +38,7 @@ q, k = rotary_emb.rotate([q, k])
 
 ### Interpolating Sequence Positions
 Introduced in [Position Interpolation](https://arxiv.org/pdf/2306.15595.pdf) paper.
+
 Aims to extend the context size of pretrained models.
 
 ```python

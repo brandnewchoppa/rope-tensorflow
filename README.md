@@ -67,3 +67,13 @@ rotary_emb = RoPE(dim = 32, interpolate_factor = 2.0)
     volume  = {abs/2104.09864}
 }
 ```
+
+```bibtex
+@misc{rope-eleutherai,
+  title = {Rotary Embeddings: A Relative Revolution},
+  author = {Biderman, Stella and Black, Sid and Foster, Charles and Gao, Leo and Hallahan, Eric and He, Horace and Wang, Ben and Wang, Phil},
+  howpublished = \url{blog.eleuther.ai/},
+  note = {[Online; accessed ]},
+  year = {2021}
+}
+```

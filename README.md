@@ -1,6 +1,7 @@
 # RoPE - TensorFlow
-RoPE (TensorFlow implementation) from the paper [Transformer Quality in Linear Time](https://arxiv.org/pdf/2202.10447.pdf)
-Based on the original work of paper [Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/pdf/2104.09864.pdf)
+RoPE (TensorFlow implementation) from the paper [Transformer Quality in Linear Time](https://arxiv.org/pdf/2202.10447.pdf).
+
+Based on the original work of paper [Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/pdf/2104.09864.pdf).
 
 > [!WARNING]
 > This repository is under developemnt, but please feel free to explore and provide any feedback or suggestions you may have. :construction:

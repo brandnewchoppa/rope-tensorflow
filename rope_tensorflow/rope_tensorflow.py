@@ -60,7 +60,7 @@ class RoPE(Layer):
         return freqs, seq_pos
 
     def rotate(self, x):
-        if x is list:
+        if isinstance(x, list):
             q, k = x
             n = q.shape[-1]
             freqs, seq_pos = self._calc_freqs(q)

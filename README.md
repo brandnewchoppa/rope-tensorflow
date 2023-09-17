@@ -8,6 +8,11 @@ Based on the original work of paper [Enhanced Transformer with Rotary Position E
 
 ## Usage
 
+## Install
+```shell
+!pip install git+https://github.com/brandnewchoppa/rope-tensorflow.git
+```
+
 ```python
 import tensorflow as tf
 from rope_tensorflow import RoPE

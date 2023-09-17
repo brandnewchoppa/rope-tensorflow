@@ -3,10 +3,12 @@ import tensorflow as tf
 from keras.layers import Layer
 
 def rotate_half(x):
-    x_shape = x.shape
-    x = tf.reshape(x, tf.TensorShape(x.shape[:-1] + [ x.shape[-1] // 2, 2 ]))
+    x_shape = tf.shape(x)
+    const = tf.constant([2], tf.int32)
+    new_shape = tf.concat([ x_shape[:-1], tf.cast(x_shape[-1, None] / const, tf.int32), const ], axis = 0)
+    x = tf.reshape(x, new_shape)
+    
     x1, x2 = tf.split(x, 2, axis = -1)
-    #x1, x2 = tf.squeeze([x1, x2], axis = -1)
     x1, x2 = tf.squeeze(x1, axis = -1), tf.squeeze(x2, axis = -1)
     x = tf.stack([ -x2, x1 ], axis = -1)
     return tf.reshape(x, x_shape)

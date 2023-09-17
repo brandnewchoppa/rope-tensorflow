@@ -74,3 +74,7 @@ class RoPE(Layer):
 
         freqs, _ = self._calc_freqs(x)
         return apply_rotary_emb(freqs, x)
+
+    @tf.function(jit_compile = True)
+    def call(self, x):
+        return self.rotate(x)

@@ -62,6 +62,8 @@ class RoPE(Layer):
         self.scale = (tf.range(0, dim, 2, self.freqs.dtype) + .4 * dim) / (1.4 * dim)
         self.scale_base = xpos_scale_base
 
+        self.built = True
+
     def _calc_freqs(self, x):
         n = x.shape[-2]
         seq_pos = tf.range(n, dtype = self.freqs.dtype) / self.interpolate_factor

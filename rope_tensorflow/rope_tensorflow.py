@@ -49,6 +49,12 @@ class RoPE(Layer):
                  theta_rescale_factor : float = 1.0,
                  **kwargs):
         super().__init__(**kwargs)
+        self.dim = dim
+        self.theta = theta
+        self.xpos_scale_base = xpos_scale_base
+        self.interpolate_factor = interpolate_factor
+        self.theta_rescale_factor = theta_rescale_factor
+                     
         theta *= theta_rescale_factor ** (dim / (dim - 2))
         self.freqs = 1.0 / (theta ** (tf.range(0, dim, 2)[:(dim // 2)] / dim))
         self.interpolate_factor = interpolate_factor
@@ -80,16 +86,16 @@ class RoPE(Layer):
         freqs, _ = self._calc_freqs(x)
         return apply_rotary_emb(freqs, x)
 
-    #@tf.function(jit_compile = True)
     def call(self, x):
         return self.rotate(x)
     
     def get_config(self):
         config = super().get_config()
         config.update({
-            'freqs': self.freqs,
+            'dim': self.dim,
+            'theta': self.theta,
+            'xpos_scale_base': self.xpos_scale_base,
             'interpolate_factor': self.interpolate_factor,
-            'scale': self.scale,
-            'scale_base': self.scale_base
+            'theta_rescale_factor': self.theta_rescale_factor
         })
         return config

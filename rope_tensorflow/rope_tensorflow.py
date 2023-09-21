@@ -21,6 +21,7 @@ def apply_rotary_emb(freqs, x, scale = 1.0):
     x = (x * tf.math.cos(freqs) * scale) + (rotate_half(x) * tf.math.sin(freqs) * scale)
     return tf.concat([ x_left, x, x_right ], axis = -1)
 
+@register_keras_serializable(package = 'RoPETensorFlow')
 class RoPE(Layer):
     '''
     Rotary Position Emebddings (RoPE)
@@ -78,6 +79,16 @@ class RoPE(Layer):
         freqs, _ = self._calc_freqs(x)
         return apply_rotary_emb(freqs, x)
 
-    @tf.function(jit_compile = True)
+    #@tf.function(jit_compile = True)
     def call(self, x):
         return self.rotate(x)
+    
+    def get_config(self):
+        config = super().get_config()
+        config.update({
+            'freqs': self.freqs,
+            'interpolate_factor': self.interpolate_factor,
+            'scale': self.scale,
+            'scale_base': self.scale_base
+        })
+        return config

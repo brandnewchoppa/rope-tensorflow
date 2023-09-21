@@ -1,6 +1,7 @@
 import tensorflow as tf
 
 from keras.layers import Layer
+from keras.saving import register_keras_serializable
 
 def rotate_half(x):
     x_shape = tf.shape(x)

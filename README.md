@@ -4,7 +4,7 @@ RoPE (TensorFlow implementation) from the paper [Transformer Quality in Linear T
 Based on the original work of paper [Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/pdf/2104.09864.pdf).
 
 > [!WARNING]
-> This repository is under developemnt, but please feel free to explore and provide any feedback or suggestions you may have. :construction:
+> This repository is under development, but please feel free to explore and provide any feedback or suggestions you may have. :construction:
 
 ## Install
 ```shell
